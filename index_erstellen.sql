@@ -20,9 +20,9 @@ INSERT INTO Trainingsplan (Bez, ErstellDatum) VALUES ('Test', '2022-08-08'), ('T
 
 CREATE INDEX index1 ON Trainingsplan (Id);
 GO
-CREATE CLUSTERED INDEX index2 ON Trainingsplan (Id);
+/*CREATE CLUSTERED INDEX index2 ON Trainingsplan (Id);
 GO
 CREATE UNIQUE INDEX index3 ON Trainingsplan (Id DESC);
-GO
+GO*/
 
 SELECT * FROM Trainingsplan WITH(INDEX(Index1));
