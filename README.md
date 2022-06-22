@@ -35,6 +35,22 @@ SELECT * FROM Trainingsplan;
 SET @t2 = GETDATE();
 DECLARE @TimeSecondQuery INT = DATEDIFF(millisecond,@t1,@t2);
 
-SELECT @TimeFirstQuery as 'Zeit für erste Abfrage', @TimeSecondQuery as 'Zeit für zweite Abfrage', @TimeSecondQuery- @TimeSecondQuery as 'Differenz';
+SELECT @TimeFirstQuery as 'Zeit für erste Abfrage(ms)', @TimeSecondQuery as 'Zeit für zweite Abfrage(ms)', (@TimeSecondQuery - @TimeFirstQuery) as 'Differenz(ms)';
+```
+
+## Viele Datensätze einfügen
+```sql
+USE Indizes;
+
+DECLARE @Id INT = 0;
+While @Id <= 12000
+Begin 
+    DECLARE @randomString VARCHAR(255);
+     SELECT @randomString = CONVERT(varchar(255), NEWID())
+   Insert Into Trainingsplan (Bez, ErstellDatum) VALUES (@randomString, '2022-02-02');
+   Set @Id = @Id + 1
+End
+
+Select * From Trainingsplan
 ```
 
