@@ -18,7 +18,7 @@ GO
 Ein Index kann mit dem Vergleich der Abfragezeit ohne Index getestet werden.
 
 Beispiel mit GetDate()
-```HTML
+```sql
 USE Indizes
 GO
 
